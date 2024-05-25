@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'beSide') }}</title>
+        <link rel="icon" type="image/png" href="{{ asset('beSide-logo.png') }}">
 
 
         <!-- Fonts -->
@@ -23,7 +24,9 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <div class="center-logo">
+                        <img src="{{ asset('images/beSide-logo.png') }}" alt="Logo" class="logo">
+                    </div>
                 </a>
             </div>
 
