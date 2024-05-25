@@ -36,8 +36,8 @@ class RegisteredUserController extends Controller
             'home_address' => ['nullable', 'string'],
             'home_coordinates' => ['nullable', 'string'],
             'phone_num' => ['nullable', 'string'],
-            'is_online' => ['required', 'boolean'],
-            'points' => ['required', 'integer'],
+            'is_online' => ['nullable', 'boolean'],
+            'points' => ['nullable', 'integer'],
         ]);
 
         $user = User::create([
@@ -47,8 +47,8 @@ class RegisteredUserController extends Controller
             'home_address' => $request->homeAddress,
             'home_coordinates' => $request->homeCoordinates,
             'phone_num' => $request->phoneNum,
-            'is_online' => $request->isOnline,
-            'points' => $request->points,
+            'is_online' => false,
+            'points' => 0,
         ]);
 
         event(new Registered($user));
