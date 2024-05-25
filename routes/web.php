@@ -5,13 +5,15 @@ use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Task; // Ensure you have a Task model
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+});
 
 //  for /task page ------------------------------------------------------------------------------------------
 // Define the route for /taskcard
