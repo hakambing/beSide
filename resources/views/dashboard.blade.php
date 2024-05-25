@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <!-- <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <button type="button" class="btn btn-primary">SUbmit</button>
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -14,10 +14,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="card" style="width: 18rem;">
-        <img src="public\images\beSide-logo.png" class="card-img-top" alt="">
+        <img src="public/images/beSide-logo.png" class="card-img-top" alt="">
         <a href="#">
             <div class="card-body">
                 <h5 class="card-title">Move furniture</h5>

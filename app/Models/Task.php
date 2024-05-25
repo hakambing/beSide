@@ -11,6 +11,8 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $table = 'tasks'; // Specify your table name if not the default
+
     protected $fillable = [
         'title',
         'description',
@@ -18,6 +20,10 @@ class Task extends Model
         'is_complete'
     ];
 
+    protected $casts = [
+        'deadline' => 'datetime',  // This casts the deadline to a Carbon instance
+    ];
+    
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
