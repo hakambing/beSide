@@ -7,7 +7,7 @@
     @endif
 
     <div class="container">
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" style="min-width: 400px;">
             @csrf
 
             <!-- Email Address -->
