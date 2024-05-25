@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Task extends Model
 {
     use HasFactory;
+
 
     protected $table = 'tasks'; // Specify your table name if not the default
 
@@ -23,14 +25,23 @@ class Task extends Model
     protected $casts = [
         'deadline' => 'datetime',  // This casts the deadline to a Carbon instance
     ];
-    
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function reponses(): HasMany
+
+    public function responses(): HasMany
     {
         return $this->hasMany(TaskResponse::class);
     }
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+
+
 }

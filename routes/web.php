@@ -25,6 +25,7 @@ Route::get('/taskcard', function () {
         'tasks' => $tasks // Pass all tasks to the view
     ]);
 });
+Route::get('taskcard', [TaskController::class, 'taskcard'])->name('taskcard');
 // ---------------------------------------------------------------------------------------------------------
 
 

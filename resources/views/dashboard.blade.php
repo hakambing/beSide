@@ -3,9 +3,10 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Tasks') }}
         </h2>
+        
     </x-slot>
 
- 
+
     <div class="card" style="width: 18rem;">
         <img src="public\images\beSide-logo.png" class="card-img-top" alt="">
         <a href="#">
@@ -16,4 +17,5 @@
             </div>
         </a>
     </div>
+
 </x-app-layout>

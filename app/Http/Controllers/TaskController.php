@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Category; // Import the Category model
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB; // Import the DB class
 
 class TaskController extends Controller
 {
@@ -21,23 +24,43 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
+        $categories = Category::all();
+        return view('tasks.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created task in storage.
-     */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'deadline' => 'required|date',
+            'categories' => 'required|array',
+            'categories.*' => 'exists:categories,id',
         ]);
 
-        Task::create($validated);
+        $task = new Task;
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->deadline = $request->deadline;
+        $task->user_id = Auth::id();
+        $task->save();
 
-        return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
+        foreach ($request->categories as $categoryId) {
+            DB::table('category_task')->insert([
+                'task_id' => $task->id,
+                'category_id' => $categoryId,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        return redirect()->route('taskcard')->with('success', 'Task created successfully.');
+    }
+
+    public function taskcard()
+    {
+        $tasks = Task::where('user_id', Auth::id())->get();
+        return view('taskcard', compact('tasks'));
     }
 
     /**
