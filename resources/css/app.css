@@ -4,3 +4,22 @@
     font-weight: 400;
     font-style: normal;
 }
+
+.header-image {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto;
+    
+}
+
+.center-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; /* Full height of the viewport */
+
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
