@@ -14,13 +14,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('task_responses', function (Blueprint $table) {
+            Schema::dropIfExists('task_responses');
             $table->id();
             $table->timestamps();
             $table->string('message');
             $table->boolean('did_issuer_review');
             $table->boolean('did_helper_review');
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Task::class);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('task_id');
+            $table->foreign('task_id')->references('id')->on('tasks');
         });
     }
 

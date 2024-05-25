@@ -13,10 +13,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
+            Schema::dropIfExists('categories');
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->foreignIdFor(User::class);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

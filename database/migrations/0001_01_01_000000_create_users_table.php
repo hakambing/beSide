@@ -12,6 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
+            Schema::dropIfExists('users');
+            Schema::dropIfExists('password_reset_tokens');
+            Schema::dropIfExists('sessions');
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -21,7 +24,9 @@ return new class extends Migration
             $table->geography('home_coordinates', subtype: 'point', srid: 4326)->nullable();
             $table->string('phone_num')->nullable();
             $table->boolean('is_online')->nullable();
-            $table->integer('points')->nullable();
+            $table->integer('points')
+                ->nullable()
+                ->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

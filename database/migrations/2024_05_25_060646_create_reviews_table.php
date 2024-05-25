@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reviews', function (Blueprint $table) {
+            Schema::dropIfExists('reviews');
             $table->id();
             $table->timestamps();
             $table->integer('rating');

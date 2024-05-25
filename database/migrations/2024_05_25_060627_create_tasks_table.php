@@ -13,13 +13,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tasks', function (Blueprint $table) {
+            Schema::dropIfExists('tasks');
             $table->id();
             $table->timestamps();
             $table->string('title');
             $table->string('description');
             $table->timestamp('deadline');
             $table->boolean('is_complete');
-            $table->foreignIdFor(User::class);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

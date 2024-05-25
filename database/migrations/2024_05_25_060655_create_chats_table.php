@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chats', function (Blueprint $table) {
+            Schema::dropIfExists('chats');
             $table->id();
             $table->timestamps();
             $table->boolean('has_unseen_messages');

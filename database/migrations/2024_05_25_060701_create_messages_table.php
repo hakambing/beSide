@@ -14,11 +14,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('messages', function (Blueprint $table) {
+            Schema::dropIfExists('messages');
             $table->id();
             $table->timestamps();
             $table->string('content');
             $table->boolean('is_seen');
-            $table->foreignIdFor(Chat::class);
+            $table->unsignedBigInteger('chat_id');
+            $table->foreign('chat_id')->references('id')->on('chats');
             $table->unsignedBigInteger('sender_id');
             $table->foreign('sender_id')->references('id')->on('users');
             $table->unsignedBigInteger('reciever_id');
