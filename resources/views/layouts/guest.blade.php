@@ -19,19 +19,22 @@
         <script src="/bootstrap/masonry.pkgd.min.js"></script>
         <script src="/bootstrap/bootstrap.bundle.js"></script>
         <link href="/css/app.css" rel="stylesheet" />
-        <script src="/js/app.js"></script>    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <div class="center-logo">
-                        <img src="{{ asset('images/beSide-logo.png') }}" alt="Logo" class="logo">
-                    </div>
-                </a>
-            </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+        <script src="/js/app.js"></script>    
+    </head>
+    <body>
+        <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+            <div class="align-items-center p-5 shadow-box">
+                <div>
+                    <a href="/">
+                        <div class="center-logo mb-3">
+                            <img src="{{ asset('images/beSide-logo.png') }}" alt="Logo" width="250">
+                        </div>
+                    </a>
+                </div>
+    
+                <div>
+                    {{ $slot }}
+                </div>
             </div>
         </div>
     </body>
