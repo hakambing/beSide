@@ -901,6 +901,13 @@
             }
         }
     </style>
+    <link href="/bootstrap/bootstrap.css" rel="stylesheet" />
+    <script src="/jquery/jquery-3.7.1.min.js"></script>
+    <script src="/socket/socket.io.js"></script>
+    <script src="/bootstrap/masonry.pkgd.min.js"></script>
+    <script src="/bootstrap/bootstrap.bundle.js"></script>
+    <link href="/css/app.css" rel="stylesheet" />
+    <script src="/js/app.js"></script>
 </head>
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
