@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->timestamp('deadline');
-            $table->boolean('is_complete');
+            $table->boolean('is_complete')->default(false);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });
