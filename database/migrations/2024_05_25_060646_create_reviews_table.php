@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('rating');
+            $table->string('comment');
+            $table->unsignedBigInteger('reviewer_id');
+            $table->foreign('reviewer_id')->references('id')->on('users');
+            $table->unsignedBigInteger('reviewee_id');
+            $table->foreign('reviewee_id')->references('id')->on('users');
         });
     }
 
