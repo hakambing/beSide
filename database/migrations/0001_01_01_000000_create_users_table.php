@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('home_address');
+            $table->geography('home_coordinates', subtype: 'point', srid: 4326);
+            $table->string('phone_num');
+            $table->boolean('is_online');
+            $table->integer('points');
             $table->rememberToken();
             $table->timestamps();
         });
