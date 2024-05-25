@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
+use App\Models\Task;
 
 return new class extends Migration
 {
@@ -14,6 +16,11 @@ return new class extends Migration
         Schema::create('task_responses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('message');
+            $table->boolean('did_issuer_review');
+            $table->boolean('did_helper_review');
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Task::class);
         });
     }
 
