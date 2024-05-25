@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone_num'
     ];
 
     /**
@@ -43,5 +45,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get all the specialties of the user.
+     */
+    public function specialties()
+    {
+        return $this->hasMany(Specialty::class);
     }
 }
