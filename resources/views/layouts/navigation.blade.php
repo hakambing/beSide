@@ -1,8 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg">
+    <div class="container py-3">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('dashboard') }}">
-            <img src="{{ asset('images/beSide-logo.png') }}" alt="beSide Logo" width="35" height="28">
-            <span class="ml-2">beSide</span>
+            <img src="{{ asset('images/beSide-logo.png') }}" alt="beSide Logo" width="53" height="28">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
