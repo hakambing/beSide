@@ -14,9 +14,13 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Scripts -->
-    @vite(['resources/bootstrap/bootstrap.css', 'resources/jquery/jquery-3.7.1.min.js','resources/socket/socket.io.js','resources/bootstrap/masonry.pkgd.min.js','resources/bootstrap/bootstrap.bundle.js','resources/css/app.css','resources/js/app.js'])
-</head>
+    <link href="/bootstrap/bootstrap.css" rel="stylesheet" />
+    <script src="/jquery/jquery-3.7.1.min.js"></script>
+    <script src="/socket/socket.io.js"></script>
+    <script src="/bootstrap/masonry.pkgd.min.js"></script>
+    <script src="/bootstrap/bootstrap.bundle.js"></script>
+    <link href="/css/app.css" rel="stylesheet" />
+    <script src="/js/app.js"></script></head>
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
