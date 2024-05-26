@@ -37,11 +37,17 @@ class Task extends Model
         return $this->hasMany(TaskResponse::class);
     }
 
-    public function categories(): BelongsToMany
+    // public function categories(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Category::class);
+    // }
+
+    public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'category_task'); // Explicit pivot table name
     }
 
 
+    
 
 }

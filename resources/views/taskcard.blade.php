@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="row mt-5"> <!-- Bootstrap classes to add horizontal and vertical gaps -->
+        <div class="row gx-4 gy-4"> <!-- Bootstrap classes to add horizontal and vertical gaps -->
             @foreach ($tasks as $task)
                 <div class="col-md-4 col-sm-6 mb-4"> <!-- Bootstrap column with margin-bottom -->
                 <a href="{{ route('taskcard.show', ['id' => $task->id]) }}" class="text-decoration-none text-dark">
@@ -39,8 +39,10 @@
             @endforeach
         </div>
     </div>
+
+
 </x-app-layout>
 
-<style>
+<!-- <style>
 
 </style>
