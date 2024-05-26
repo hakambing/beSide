@@ -59,10 +59,11 @@ class TaskController extends Controller
 
     public function taskcard()
     {
-        // Fetch all tasks with their associated categories
-        $tasks = Task::with('categories')->paginate(10);
+        // Fetch all tasks with their associated categories and the user who created them
+        $tasks = Task::with('categories', 'user')->paginate(10); // paginate is for performance loading management to scale up 
         return view('taskcard', compact('tasks'));
     }
+    
 
     public function show($id)
     {
