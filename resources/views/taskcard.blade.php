@@ -23,10 +23,10 @@
             </div>
         </div>
 
-        <div class="row gx-4 gy-4"> <!-- Bootstrap classes to add horizontal and vertical gaps -->
+        <div class="row mt-5"> <!-- Bootstrap classes to add horizontal and vertical gaps -->
             @foreach ($tasks as $task)
                 <div class="col-md-4 col-sm-6 mb-4"> <!-- Bootstrap column with margin-bottom -->
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{ $task->title }}</h5>
                             <p class="card-text">{{ $task->description }}</p>
