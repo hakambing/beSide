@@ -13,26 +13,29 @@
             <div class="col-6 align-self-start">
                 <span class="fs-3 text-muted lh-sm">
                     @if (count($tasks) == 0)
-                        There are <b class="color-primary">no</b> neighbours near your block that need your help. You can get the ball rolling!
+                        There are <b class="color-primary">no</b> neighbours near your block that need your help. You can
+                        get the ball rolling!
                     @elseif (count($tasks) == 1)
                         There is <b class="color-primary">1</b> neighbour near your block that need your help.
                     @else
-                        There are <b class="color-primary">{{count($tasks)}}</b> neighbours near your block that need your help.
+                        There are <b class="color-primary">{{ count($tasks) }}</b> neighbours near your block that need
+                        your help.
                     @endif
                 </span>
             </div>
         </div>
 
-        <div class="row gx-4 gy-4"> <!-- Bootstrap classes to add horizontal and vertical gaps -->
+        <div class="row gx-4 gy-4 mt-4"> <!-- Bootstrap classes to add horizontal and vertical gaps -->
             @foreach ($tasks as $task)
                 <div class="col-md-4 col-sm-6 mb-4"> <!-- Bootstrap column with margin-bottom -->
-                <a href="{{ route('taskcard.show', ['id' => $task->id]) }}" class="text-decoration-none text-dark">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $task->title }}</h5>
-                            <p class="card-text">{{ $task->description }}</p>
-                            <p class="card-text"><small class="text-muted">Deadline:
-                                    {{ optional($task->deadline)->format('Y-m-d H:i:s') }}</small></p>
+                    <a href="{{ route('taskcard.show', ['id' => $task->id]) }}" class="text-decoration-none text-dark">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $task->title }}</h5>
+                                <p class="card-text">{{ $task->description }}</p>
+                                <p class="card-text"><small class="text-muted">Deadline:
+                                        {{ optional($task->deadline)->format('Y-m-d H:i:s') }}</small></p>
+                            </div>
                         </div>
                     </a>
                 </div>
