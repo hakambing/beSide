@@ -913,3 +913,7 @@ video {
 .shadow-box {
     border-radius: 15px; border: 3px solid #F4F5F6; box-shadow: 1px 44px 135px -50px rgba(0,0,0,0.20);
 }
+
+.color-primary {
+    color: #198754 !important;
+}
