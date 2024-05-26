@@ -47,7 +47,7 @@
 </div>
             @endforeach
         </div>
-        
+        {{ $tasks->links() }} <!-- Pagination links -->
     </div>
 
 
