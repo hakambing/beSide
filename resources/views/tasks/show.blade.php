@@ -1,24 +1,31 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Task Details') }}
-        </h2>
-    </x-slot>
-
-
-
-    <div class="row g-0 text-center">
-        <div class="col-sm-6 col-md-8">
-            <div class="card-body">
-                <h2 class="h2">{{ $task->title }}</h2>
-                <p class="card-text">{{ $task->description }}</p>
-                <p class="card-text"><small class="text-muted">Deadline:
-                        {{ optional($task->deadline)->format('Y-m-d') }}</small></p>
+    <div class="container">
+        <div class="mt-4 row">
+            <div class="col-12 align-self-start mb-4">
+                <span class="fs-3 text-muted lh-sm">
+                    Posted by <b class="color-primary">{{ $task->user->name }}</b>
+                </span>
             </div>
-        </div>
-        <div class="col-6 col-md-4">
-
+            <br>
+            <div class="col-12 align-self-start">
+                <h1 class="">
+                    {{ $task->title }}
+                </h1>
+            </div>
+            <div class="col-12 align-self-start">
+                <span class="fs-3 text-muted lh-sm">
+                    {{ $task->description }}
+                </span>
+            </div>
+            <div class="col-12 align-self-start">
+                @forelse ($task->categories as $category)
+                    <span class="badge bg-secondary">{{ $category->name }}</span>
+                @empty
+                    <span>No categories</span>
+                @endforelse
+            </div>
+            <p class="card-text mt-2"><small class="text-muted">Deadline:
+                    {{ optional($task->deadline)->format('Y-m-d') }}</small></p>
         </div>
     </div>
-
 </x-app-layout>
