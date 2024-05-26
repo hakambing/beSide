@@ -57,11 +57,22 @@ class TaskController extends Controller
         return redirect()->route('taskcard')->with('success', 'Task created successfully.');
     }
 
-    public function taskcard()
-    {
-        $tasks = Task::where('user_id', Auth::id())->get();
-        return view('taskcard', compact('tasks'));
-    }
+ 
+//     public function taskcard()  // this version is to include categories to be displayed too by only the session user
+// {
+//     $tasks = Task::with('categories')->where('user_id', Auth::id())->get();
+//     return view('taskcard', compact('tasks'));
+// }
+
+public function taskcard() // this version displays all tasks from DB
+{
+    // Fetch all tasks with their associated categories
+    // $tasks = Task::with('categories')->get();
+    // return view('taskcard', compact('tasks'));
+    $tasks = Task::with('categories')->paginate(10);  // Adjust the number to how many tasks per page you want. this is for performance to manage load times
+    return view('taskcard', compact('tasks'));
+
+}
 
     /**
      * Display the specified task.

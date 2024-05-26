@@ -14,8 +14,13 @@ class Category extends Model
         'name'
     ];
 
-    public function task(): BelongsTo
+    // public function task(): BelongsTo
+    // {
+    //     return $this->belongsTo(Task::class);
+    // }
+    public function tasks()
     {
-        return $this->belongsTo(Task::class);
+        return $this->belongsToMany(Task::class, 'category_task'); // Explicit pivot table name
     }
+
 }
