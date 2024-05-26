@@ -59,9 +59,11 @@ class TaskController extends Controller
 
     public function taskcard()
     {
-        $tasks = Task::where('user_id', Auth::id())->get();
+        // Fetch all tasks with their associated categories
+        $tasks = Task::with('categories')->paginate(10);
         return view('taskcard', compact('tasks'));
     }
+
     public function show($id)
     {
         $task = Task::findOrFail($id);
