@@ -45,9 +45,6 @@
                     </ul>
                 </li>
             </ul>
-
-            <!-- Dark Mode Toggle -->
-            <button id="darkModeToggle" class="btn btn-outline-secondary">Dark Mode</button>
         </div>
     </div>
 </nav>
