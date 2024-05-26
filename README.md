@@ -10,12 +10,22 @@ Subject to change, still need install stuff for database.
 - Install MySQL
 
 ## Run
-**Note:** A .env file is needed to run the app. Contact admin for more details.<br>
+**Note:** A .env file is needed to run the app. Set up database. Contact admin for more details.<br>
 Run the following code.
 
 > ```
 > cd beSide
 > ```
 > ```
+> php artisan migrate
+> ```
+> ```
+> php artisan db:seed
+> ```
+> ```
 > php artisan serve
 > ```
+>
+> Accounts to test on:
+> john@example.com, password123
+> jane@example.com, password123
