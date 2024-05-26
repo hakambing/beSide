@@ -13,13 +13,12 @@
             <div class="col-6 align-self-start">
                 <span class="fs-3 text-muted lh-sm">
                     @if (count($tasks) == 0)
-                        There are <b class="color-primary">no</b> neighbours near your block that need your help. You can
+                        There are <b class="color-primary">no</b> tasks near you. You can
                         get the ball rolling!
                     @elseif (count($tasks) == 1)
-                        There is <b class="color-primary">1</b> neighbour near your block that need your help.
+                        There is <b class="color-primary">1</b> task near you.
                     @else
-                        There are <b class="color-primary">{{ count($tasks) }}</b> neighbours near your block that need
-                        your help.
+                        There are <b class="color-primary">{{ count($tasks) }}</b> tasks near you.
                     @endif
                 </span>
             </div>
@@ -33,8 +32,6 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $task->title }}</h5>
                             <p class="card-text">{{ $task->description }}</p>
-                            <p class="card-text"><small class="text-muted">Deadline:
-                                    {{ optional($task->deadline)->format('Y-m-d H:i:s') }}</small></p>
                                     <p class="card-text">
                             @forelse ($task->categories as $category)
                                 <span class="badge bg-secondary">{{ $category->name }}</span>
