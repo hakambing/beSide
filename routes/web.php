@@ -26,6 +26,7 @@ Route::get('/taskcard', function () {
     ]);
 });
 Route::get('taskcard', [TaskController::class, 'taskcard'])->name('taskcard');
+Route::get('/taskcard/{id}', [TaskController::class, 'show'])->name('taskcard.show');
 // ---------------------------------------------------------------------------------------------------------
 
 

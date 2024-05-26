@@ -33,7 +33,7 @@
                             <p class="card-text"><small class="text-muted">Deadline:
                                     {{ optional($task->deadline)->format('Y-m-d H:i:s') }}</small></p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @endforeach
         </div>

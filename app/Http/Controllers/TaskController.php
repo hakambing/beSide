@@ -79,9 +79,9 @@ public function taskcard() // this version displays all tasks from DB
      */
     public function show(Task $task)
     {
+        $task = Task::findOrFail($id);
         return view('tasks.show', compact('task'));
     }
-
     /**
      * Show the form for editing the specified task.
      */
