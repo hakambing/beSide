@@ -62,15 +62,11 @@ class TaskController extends Controller
         $tasks = Task::where('user_id', Auth::id())->get();
         return view('taskcard', compact('tasks'));
     }
-
-    /**
-     * Display the specified task.
-     */
-    public function show(Task $task)
+    public function show($id)
     {
+        $task = Task::findOrFail($id);
         return view('tasks.show', compact('task'));
     }
-
     /**
      * Show the form for editing the specified task.
      */
