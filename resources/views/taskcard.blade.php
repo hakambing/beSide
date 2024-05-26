@@ -26,6 +26,7 @@
         <div class="row mt-5"> <!-- Bootstrap classes to add horizontal and vertical gaps -->
             @foreach ($tasks as $task)
                 <div class="col-md-4 col-sm-6 mb-4"> <!-- Bootstrap column with margin-bottom -->
+                <a href="{{ route('taskcard.show', ['id' => $task->id]) }}" class="text-decoration-none text-dark">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{ $task->title }}</h5>
