@@ -32,11 +32,21 @@
                             <p class="card-text">{{ $task->description }}</p>
                             <p class="card-text"><small class="text-muted">Deadline:
                                     {{ optional($task->deadline)->format('Y-m-d H:i:s') }}</small></p>
+                                    <p class="card-text">
+                            @forelse ($task->categories as $category)
+                                <span class="badge bg-secondary">{{ $category->name }}</span>
+                            @empty
+                                <span>No categories</span>
+                            @endforelse
+                        </p>
+                        <p class="card-text"><small class="text-muted">Deadline:
+                            {{ optional($task->deadline)->format('Y-m-d H:i:s') }}</small></p>
                         </div>
                     </a>
                 </div>
             @endforeach
         </div>
+        
     </div>
 
 
